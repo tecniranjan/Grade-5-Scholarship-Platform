@@ -10,6 +10,7 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem('genius_lang', lang);
+    document.title = translations[lang]?.appTitle || translations.EN.appTitle;
   }, [lang]);
 
   const t = (key) => {
