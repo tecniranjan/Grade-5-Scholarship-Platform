@@ -19,7 +19,7 @@ function AppRoutes() {
     <div className="min-h-screen bg-gray-50">
       {user && <Navbar />}
       <Routes>
-        <Route path="/" element={user ? <Navigate to={user.role === 'admin' ? '/admin' : '/dashboard'} /> : <LandingPage />} />
+        <Route path="/" element={!user || user.role === 'admin' ? <LandingPage /> : <Navigate to="/dashboard" />} />
         <Route path="/login" element={user ? <Navigate to={user.role === 'admin' ? '/admin' : '/dashboard'} /> : <LoginPage />} />
         <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <RegisterPage />} />
         <Route path="/dashboard" element={<ProtectedRoute role="student"><StudentDashboard /></ProtectedRoute>} />
