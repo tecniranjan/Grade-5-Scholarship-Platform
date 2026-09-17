@@ -87,6 +87,7 @@ CREATE TABLE exam_schedule (
   exam_date DATE NOT NULL,
   start_time TIME NOT NULL,
   end_time TIME NOT NULL,
+  question_count INT NOT NULL DEFAULT 50,
   is_active BOOLEAN DEFAULT TRUE,
   notes TEXT,
   created_at TIMESTAMP DEFAULT NOW(),
